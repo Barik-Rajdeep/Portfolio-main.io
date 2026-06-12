@@ -5,11 +5,169 @@
     <link rel="icon" href="images/title icon.png" />
     <title>RajdeepBarik</title>
     <style>
-      #home {
-        background-image: url('images\bg_2.jpg');
-        background-repeat: no-repeat;
-        background-size: cover;
-        height: 100vh;
+      #home-section {
+        position: relative;
+        overflow: hidden;
+        padding: 4rem 0 3rem;
+        background: #000;
+      }
+      #home-section::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at top center, rgba(255, 255, 255, 0.05), transparent 22%),
+                    repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 24px);
+        opacity: 0.16;
+        pointer-events: none;
+      }
+      #home-section .hero-layer {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+      #home-section .hero-grid {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 72vh;
+        padding: 0.5rem 0;
+      }
+      #home-section .hero-card {
+        width: 100%;
+        max-width: 900px;
+        display: block;
+        background: rgba(4, 14, 40, 0.92);
+        border: 1px solid rgba(135, 200, 255, 0.14);
+        border-radius: 34px;
+        padding: 2rem;
+        box-shadow: 0 32px 90px rgba(0, 0, 0, 0.30);
+        overflow: hidden;
+      }
+      #home-section .hero-card-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      #home-section .hero-pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem 1rem;
+        border-radius: 999px;
+        border: 1px solid rgba(95, 170, 255, 0.24);
+        background: rgba(95, 170, 255, 0.10);
+        color: #b7d5ff;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
+      #home-section .subheading {
+        display: block;
+        color: #a7d3ff;
+        font-size: 1rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+      #home-section .hero-title {
+        font-size: clamp(3.5rem, 5.2vw, 6rem);
+        line-height: 0.98;
+        margin-bottom: 1.2rem;
+        color: #9ff6b8;
+        text-transform: uppercase;
+        letter-spacing: -0.04em;
+      }
+      #home-section .hero-title span {
+        display: block;
+        color: #7ee7ff;
+      }
+      #home-section .hero-copy {
+        color: #d9e6ff;
+        font-size: 1.05rem;
+        line-height: 1.85;
+        max-width: 620px;
+        margin-bottom: 2rem;
+      }
+      #home-section .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 1.8rem;
+      }
+      #home-section .hero-actions .btn {
+        min-width: 160px;
+        border-radius: 999px;
+        padding: 0.95rem 1.4rem;
+      }
+      #home-section .btn-primary {
+        background-color: #76ffb8;
+        border-color: #76ffb8;
+        color: #03101c;
+        font-weight: 700;
+      }
+      #home-section .btn-white {
+        color: #eef6ff;
+        border-color: rgba(255, 255, 255, 0.20);
+        background: rgba(255, 255, 255, 0.04);
+      }
+      #home-section .btn-white:hover {
+        background: rgba(255, 255, 255, 0.12);
+      }
+      #home-section .hero-socials {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+      }
+      #home-section .hero-socials a {
+        color: #b8d8ff;
+        text-decoration: none;
+        padding: 0.7rem 0.85rem;
+        border: 1px solid rgba(184, 216, 255, 0.14);
+        border-radius: 20px;
+        transition: background-color 0.2s ease, color 0.2s ease;
+        font-size: 0.9rem;
+      }
+      #home-section .hero-socials a:hover {
+        background: rgba(114, 163, 255, 0.08);
+        color: #ffffff;
+      }
+      #home-section .hero-card-image {
+        min-height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #home-section .hero-card-image img {
+        width: 100%;
+        max-height: 300px;
+        object-fit: cover;
+        border-radius: 24px;
+        box-shadow: 0 18px 60px rgba(0, 0, 0, 0.24);
+      }
+      @media (max-width: 991.98px) {
+        #home-section .hero-card {
+          padding: 1.4rem;
+        }
+        #home-section .hero-card-image {
+          min-height: 220px;
+        }
+        #home-section .hero-title {
+          font-size: 2.6rem;
+        }
+        #home-section .hero-copy {
+          font-size: 0.95rem;
+          margin-bottom: 1rem;
+        }
+        #home-section .hero-actions {
+          justify-content: stretch;
+        }
+        #home-section .hero-actions .btn {
+          flex: 1 1 100%;
+        }
       }
     </style>
     <meta charset="utf-8">
@@ -36,68 +194,292 @@
       /*======================================
 //--//-->   ABOUT
 ======================================*/
-  /* Change the color of the My Instagram button */
-        .btn-primary {
-            background-color: #ecebe2;
-            border-color: #d2c64644;
-            color: #fff;
-          }
-  
-          .btn-primary:hover {
-            background-color: #d2c64644;
-            border-color: #d2c64644;
-            color: #fff;
-          }
-      .about-mf .box-shadow-full {
-        padding-top: 8cm;
-        padding-bottom: 8cm;
+      .btn-primary {
+        background-color: #0b3d91;
+        border-color: #0b3d91;
+        color: #ffffff;
+        font-weight: 700;
+        transition: background-color 0.2s ease, border-color 0.2s ease;
       }
 
-      .about-mf .about-img {
-        margin-bottom: 8cm;
-        padding: 10cm;
-        border: 3px solid #f5f4f180;
-        border-radius: 30px;
+      .btn-primary:hover {
+        background-color: #0f52ba;
+        border-color: #0f52ba;
+        color: #ffffff;
       }
 
-      .about-mf .about-img img {
-        margin-left: 4px;
-        width: 120%;
-        height: auto;
+      #about-section {
+        background: #000;
+        color: #e5e9f3;
       }
 
-      .skill-mf .progress {
-        /* background-color: #cde1f8; */
-        margin: 0.5rem 0 1.2rem;
-        border-radius: 0;
-        height: 0.7rem;
+      #resume-section {
+        background: #000;
       }
 
-      .skill-mf .progress .progress-bar {
-        height: 0.7rem;
-        background-color: #edece5;
+      #resume-section .heading-section h2 {
+        color: #ffffff;
       }
 
-      /* Animation styles */
-      #typing-animation {
-        position: relative;
-        font-size: 30px;
-        font-weight: bold;
-        color: rgb(255, 255, 255);
+      #about-section .about-card {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 24px;
         overflow: hidden;
-        white-space: nowrap;
-        animation: typing 3s steps(20, end) infinite;
+        box-shadow: 0 28px 75px rgba(1, 11, 27, 0.25);
       }
 
-      #typing-animation:before {
-        content: "";
-        /* position: absolute; */
-        top: 0;
-        left: 0;
-        width: 0;
+      #about-section .about-img-wrapper {
+        position: relative;
+        overflow: hidden;
+      }
+
+      #about-section .about-img-wrapper::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.40));
+      }
+
+      #about-section .about-img-wrapper img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        transition: transform 0.45s ease;
+      }
+
+      #about-section .about-img-wrapper:hover img {
+        transform: scale(1.05);
+      }
+
+      #about-section .about-info,
+      #about-section .about-card .about-info {
+        padding: 1.6rem 1.4rem 1.8rem;
+      }
+
+      #about-section .about-info p {
+        color: #c9d1e3;
+        line-height: 1.78;
+        margin-bottom: 1.35rem;
+      }
+
+      #about-section .about-info h2 {
+        color: #ffffff;
+        margin-bottom: 0.8rem;
+      }
+
+      #about-section .profile-meta {
+        display: grid;
+        gap: 0.9rem;
+        margin-top: 1.1rem;
+      }
+
+      #about-section .meta-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.1rem;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        color: #d8e1f3;
+      }
+
+      #about-section .meta-item span:first-child {
+        color: #9bb5d3;
+        font-weight: 600;
+      }
+
+      #about-section .meta-item strong {
+        font-weight: 700;
+        color: #f6f9ff;
+      }
+
+      #about-section .about-highlights {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.85rem;
+        margin-top: 1.25rem;
+      }
+
+      .highlight-pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.65rem 1rem;
+        background: rgba(9, 40, 98, 0.22);
+        color: #74b0ff;
+        border-radius: 999px;
+        border: 1px solid rgba(116, 176, 255, 0.28);
+        font-size: 0.90rem;
+        font-weight: 600;
+      }
+
+      .skill-section {
+        margin-top: 2rem;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .skill-card {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 18px;
+        padding: 1rem 1.1rem 1.15rem;
+        color: #e9edf8;
+      }
+
+      .skill-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.85rem;
+        font-weight: 700;
+      }
+
+      .skill-meter {
+        position: relative;
+        width: 100%;
+        height: 14px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 999px;
+        overflow: hidden;
+      }
+
+      .skill-meter .skill-fill {
         height: 100%;
-        background-color: #d2c64644;
-        animation: typing-cursor 0.5s ease-in-out infinite;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #0b3d91 0%, #4a90ff 100%);
+        transition: width 1s ease;
+      }
+
+      .skill-meter span {
+        position: absolute;
+        right: 0.8rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 0.76rem;
+        color: #edf4fe;
+      }
+
+      .about-info-list {
+        margin-top: 1.5rem;
+      }
+
+      .about-info-list li {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 0.85rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        color: #c7d0e4;
+      }
+
+      .about-info-list li span:first-child {
+        font-weight: 600;
+        color: #9ab0d3;
+        min-width: 110px;
+      }
+
+      .about-info-list li span:last-child {
+        text-align: right;
+        max-width: 65%;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 25px;
+        min-height: 280px;
+        background-size: cover;
+        background-position: center;
+        transition: transform 0.35s ease, box-shadow 0.35s ease;
+      }
+
+      .gallery-item:hover {
+        transform: scale(1.03);
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.18);
+      }
+
+      .gallery-item .gallery-caption {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 1rem 1.25rem;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.38);
+        backdrop-filter: blur(8px);
+      }
+
+      .gallery-item .gallery-caption h3 {
+        margin: 0;
+        font-size: 1.1rem;
+        letter-spacing: 0.03em;
+      }
+
+      #resume-section {
+        background: #000;
+        color: #e5e9f3;
+      }
+
+      #resume-section .heading-section h1.big,
+      #resume-section .heading-section h2,
+      #resume-section .heading-section p {
+        color: #edf5ff;
+      }
+
+      #resume-section .resume-wrap {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 24px;
+        padding: 1.8rem;
+        margin-bottom: 1.5rem;
+      }
+
+      #resume-section .resume-wrap h2 {
+        color: #ffffff;
+      }
+
+      #resume-section .resume-wrap p,
+      #resume-section .resume-wrap ul li,
+      #resume-section .resume-wrap .date,
+      #resume-section .resume-wrap .position {
+        color: #c8d3ea;
+      }
+
+      @media (max-width: 991px) {
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .profile-meta {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .gallery-item {
+          min-height: 200px;
+        }
+
+        .profile-meta {
+          grid-template-columns: 1fr;
+        }
       }
 
       @keyframes typing {
@@ -186,76 +568,28 @@
       </div>
     </nav>
     <section id="home-section" class="hero">
-      <div class="home-slider  owl-carousel">
-        <div class="slider-item ">
-          <style>
-            #home {
-              background-image: url('images\bg_2.jpg');
-              background-repeat: no-repeat;
-              background-size: cover;
-              height: 100vh;
-            }
-          </style>
-          <div class="overlay"></div>
-          <div class="container">
-            <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-              <div class="one-third js-fullheight order-md-last img" style="background-image:url(images/me.png);">
-                <div class="overlay"></div>
-              </div>
-              <div class="one-forth d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-                <div class="text">
-                  <span class="subheading">Hello!</span>
-                  <h1 class="mb-4 mt-3">I'm
-                    <span>Rajdeep Barik</span></h1>
-                    <style>
-                      .subheading {
-                        font-size: 22px;
-                        color: #dbc9714d;
-                        letter-spacing: 2px;
-                        font-weight: 600;
-                      }
-                      .text h1 span {
-                        color: #dbd47151;
-                      }
-                    </style>
-
-                  <!-- Element to contain animated typing -->
-                  <span id="typing-animation"></span>
-
-                  <script>
-                    // Initialize the typing animation
-                    const typingAnimationElement = document.getElementById('typing-animation');
-
-                    // Create an array of typing text
-                    const typingTexts = ['Data-Analyst','Web-Developer','Video-Editor' , ' Musician'];
-
-                    // Create a function to display the typing animation for a given text
-                    function playTypingAnimation(text) {
-                      // Loop through each character and add it to the element
-                      for (let i = 0; i < text.length; i++) {
-                        setTimeout(() => {
-                          typingAnimationElement.textContent += text[i];
-                        }, i * 100); // Decreased delay to speed up the typing animation
-                      }
-
-                      // Once the animation is complete, reset the text and start over
-                      setTimeout(() => {
-                        typingAnimationElement.textContent = '';
-                        playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]);
-                      }, text.length * 150); // Adjusted delay accordingly
-                    }
-
-                    // Start the typing animation loop
-                    playTypingAnimation(typingTexts[0]);
-                  </script><br><br>
-                  <!-- <h2 class="d-flex" style="margin-bottom: 0">With over 5 years of experience</h2> -->
-                  <!-- <br> -->
-                  <p>
-                    <a href="https://www.instagram.com/prioryofsion_/" class="btn btn-primary py-3 px-4">My Instagram</a>
-                    <a href="https://www.linkedin.com/in/rajdeep-barik-08ab9a1b9/" class="btn btn-white btn-outline-white py-3 px-4">My Linkedin</a>
-                  </p>
-                </div>
-              </div>
+      <div class="hero-layer"></div>
+      <div class="container">
+        <div class="hero-grid ftco-animate">
+          <div class="hero-left">
+            <span class="hero-pill">Personal Brand</span>
+            <span class="hero-intro">Hi, I am</span>
+            <h1 class="hero-name">Rajdeep Barik</h1>
+            <p class="hero-role">Front-end Developer / UI Designer</p>
+            <p class="hero-copy">I design minimal, modern web experiences with polished visuals and crisp interactions.</p>
+            <div class="hero-actions">
+              <a href="#about-section" class="btn btn-primary">About Me</a>
+              <a href="#contact-section" class="btn btn-white">Contact</a>
+            </div>
+            <div class="hero-socials">
+              <a href="#">@</a>
+              <a href="#">GH</a>
+              <a href="#">IN</a>
+            </div>
+          </div>
+          <div class="hero-right">
+            <div class="hero-image-card">
+              <img src="images/me.png" alt="Rajdeep Barik" class="hero-image">
             </div>
           </div>
         </div>
@@ -264,133 +598,83 @@
 
     <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
       <div class="container">
-        <div class="row">
-          <div class="row d-flex align-items-stretch">
-            <!-- <div class="row d-flex"> -->
-            <div class="col-md-6 col-lg-5 d-flex">
-              <div class="img-about img d-flex align-items-stretch">
-                <div class="overlay">
-                  <div class="row">
-                    <div class="col-sm-6 col-md-5">
-                      <div class="about-img">
-                        <img src="images/about-me.png" class="img-fluid rounded b-shadow-a" alt="Rajdeep Barik">
-                      </div>
-                    </div>
-                    <!-- Details next to profile image -->
-                    <div class="col-sm-6 col-md-7">
-                      <div class="about-info">
-                        <p>
-                          <span class="title-s">Name:
-                          </span>
-                          <span>Rajdeep Barik</span></p>
-                        <p>
-                          <span class="title-s">Job Role:
-                          </span>
-                          <span>Unemployed</span></p>
-                        <p>
-                          <!-- <span class="title-s">Experience: </span> <span>5 Years 3 Months</span></p> <p> -->
-                          <span class="title-s">Address:
-                          </span>
-                          <span>Burdwan, WestBengal</span></p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="skill-mf">
-                    <p class="title-s">Skills</p>
-                    <span>Matlab</span>
-                    <!-- <span class="pull-right">85%</span> -->
-                    <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-
-                    <span>SQL & PYTHON</span>
-                    <!-- <span class="pull-right">95%</span> -->
-                    <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-
-                    <span>Web-Developement</span>
-                    <!-- <span class="pull-right">85%</span> -->
-                    <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-
-                    <span>DaVinci Resolve Studio</span>
-                    <!-- <span class="pull-right">99%</span> -->
-                    <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-
-                    <span>Javascript</span>
-                    <!-- <span class="pull-right">99%</span> -->
-                    <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-
-                    <span>C++</span>
-                    <!-- <span class="pull-right">99%</span> -->
-                    <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <span>FUSION 360, Blender,CUBASE</span>
-                    <!-- <span class="pull-right">95%</span> -->
-                    <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 55%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <span>Canava</span>
-                    <!-- <span class="pull-right">95%</span> -->
-                    <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-
-
-                  </div>
+        <div class="row align-items-stretch">
+          <div class="col-md-6 col-lg-5 d-flex">
+            <div class="about-card ftco-animate">
+              <div class="about-img-wrapper">
+                <img src="images/about-me.png" class="img-fluid" alt="Rajdeep Barik">
+              </div>
+              <div class="about-info">
+                <h2>Rajdeep Barik</h2>
+                <p>Electronics & Communication Engineering student creating modern web experiences, data workflows, and multimedia projects with a strong eye for design and polish.</p>
+                <div class="profile-meta">
+                  <div class="meta-item"><span>Name</span><strong>Rajdeep Barik</strong></div>
+                  <div class="meta-item"><span>Role</span><strong>Engineering Student</strong></div>
+                  <div class="meta-item"><span>Location</span><strong>Burdwan, West Bengal</strong></div>
+                  <div class="meta-item"><span>Language</span><strong>English, Hindi, Bengali</strong></div>
+                </div>
+                <div class="about-highlights">
+                  <span class="highlight-pill">MATLAB</span>
+                  <span class="highlight-pill">Web Design</span>
+                  <span class="highlight-pill">Video Editing</span>
+                  <span class="highlight-pill">Creative Media</span>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
-              <div class="row justify-content-start pb-3">
-                <div class="col-md-12 heading-section ftco-animate">
+          <div class="col-md-6 col-lg-7">
+            <div class="heading-section ftco-animate">
+              <h1 class="big">About</h1>
+              <h2 class="mb-4">About Me</h2>
+              <p>I am a dedicated Electronics and Communication Engineering student with a diverse skill set encompassing technology, design, and storytelling. I build web interfaces with JavaScript and responsive layouts, analyze data with Python and SQL, and craft professional video edits using DaVinci Resolve.</p>
+              <div class="about-highlights">
+                <span class="highlight-pill">Full Stack Developer</span>
+                <span class="highlight-pill">Freelancer Artist</span>
+                <span class="highlight-pill">Creative Problem Solver</span>
+              </div>
 
-                  <h1 class="big">About</h1>
-                  <h2 class="mb-4">About Me</h2>
-
-                  <p> I am a dedicated Electronics and Communication Engineering student with a diverse skill set encompassing various areas of technology. Proficient in MATLAB for data analysis and simulation , DaVinci Resolve Studio for professional video editing and post-production , JavaScript for web development and dynamic content creation , and a range of programming languages including C++, Python, and SQL.</p>
-                  <ul class="about-info mt-4 px-md-0 px-2">
-                    <li class="d-flex">
-                      <span>Profile:</span>
-                      <span>Full Stack Developer &amp; Freelancer Artist</span></li>
-                    <li class="d-flex">
-                      <span>Domain:</span>
-                      <span>Web-Developement</span></li>
-                    <li class="d-flex">
-                      <span>Education:</span>
-                      <span>Bachelor of Technology</span></li>
-                    <li class="d-flex">
-                      <span>Language:</span>
-                      <span>English, Hindi, Bengali</span></li>
-                    <!-- <li class="d-flex"> <span>BI Tools:</span> <span>Microsoft Power BI, Looker &amp; Tableau</span></li> -->
-                    <li class="d-flex">
-                      <span>Other Skills:</span>
-                      <span>
-                        Drawing proficiency, Observational skills, Creativity, Knowledge of art fundamentals, Technical proficiency, Communication skills, Time management, Adaptability &amp; Attention to detail</span></li>
-                    <li class="d-flex">
-                      <span>Interest:</span>
-                      <span>Traveling, Travel Photography, Teaching, Editing, Music</span></li>
-
-                  </ul>
+              <div class="skill-section">
+                <p class="title-s mb-3">Skill Meter</p>
+                <div class="skills-grid">
+                  <div class="skill-card">
+                    <div class="skill-title"><span>MATLAB</span><span>78%</span></div>
+                    <div class="skill-meter"><div class="skill-fill" style="width:78%"></div><span>Advanced</span></div>
+                  </div>
+                  <div class="skill-card">
+                    <div class="skill-title"><span>Python & SQL</span><span>72%</span></div>
+                    <div class="skill-meter"><div class="skill-fill" style="width:72%"></div><span>Strong</span></div>
+                  </div>
+                  <div class="skill-card">
+                    <div class="skill-title"><span>Web Development</span><span>70%</span></div>
+                    <div class="skill-meter"><div class="skill-fill" style="width:70%"></div><span>Growing</span></div>
+                  </div>
+                  <div class="skill-card">
+                    <div class="skill-title"><span>DaVinci Resolve</span><span>85%</span></div>
+                    <div class="skill-meter"><div class="skill-fill" style="width:85%"></div><span>Pro</span></div>
+                  </div>
+                  <div class="skill-card">
+                    <div class="skill-title"><span>JavaScript</span><span>68%</span></div>
+                    <div class="skill-meter"><div class="skill-fill" style="width:68%"></div><span>Practical</span></div>
+                  </div>
+                  <div class="skill-card">
+                    <div class="skill-title"><span>C++</span><span>56%</span></div>
+                    <div class="skill-meter"><div class="skill-fill" style="width:56%"></div><span>Learning</span></div>
+                  </div>
                 </div>
               </div>
 
-              <div class="counter-wrap ftco-animate d-flex mt-md-3">
-                <div class="text">
-                  <!-- <p class="mb-4"> <span class="number" data-number="30">0</span> <span>+</span> <span>&nbsp; Projects completed</span> </p> -->
-                  <p>
-                    <a href="https://www.linkedin.com/in/rajdeep-barik-08ab9a1b9/" class="btn btn-primary py-3 px-3">LinkedIn</a>
-                  </p>
-                </div>
+              <div class="about-info mt-4">
+                <ul class="about-info-list mt-4 px-md-0 px-2">
+                  <li><span>Profile:</span><span>Full Stack Developer & Freelance Artist</span></li>
+                  <li><span>Domain:</span><span>Web Development</span></li>
+                  <li><span>Education:</span><span>Bachelor of Technology</span></li>
+                  <li><span>Interests:</span><span>Travel, Photography, Editing, Music, Teaching</span></li>
+                </ul>
+              </div>
+
+              <div class="mt-4">
+                <a href="https://www.linkedin.com/in/rajdeep-barik-08ab9a1b9/" class="btn btn-primary py-3 px-4">View LinkedIn</a>
               </div>
             </div>
           </div>
@@ -402,9 +686,36 @@
       <div class="container">
         <div class="row justify-content-center pb-5">
           <div class="col-md-10 heading-section text-center ftco-animate">
-            <h1 class="big big-2">Resume</h1>
             <h2 class="mb-4">Resume</h2>
             <p>I am a dedicated Electronics and Communication Engineering student with a diverse skill set encompassing various areas of technology. Proficient in MATLAB for data analysis and simulation , DaVinci Resolve Studio for professional video editing and post-production , JavaScript for web development and dynamic content creation , and a range of programming languages including C++, Python, and SQL. Additionally, I am adept at Canvas for graphic design and web development. My passion for technology extends to a comprehensive understanding of web development, allowing me to create engaging and functional websites. With a strong foundation in both theoretical concepts and practical applications, I am equipped to tackle challenges and contribute effectively to innovative projects.</p>
+          </div>
+        </div>
+
+        <div class="row justify-content-center pb-5">
+          <div class="col-md-10 heading-section text-center ftco-animate">
+            <h2 class="mb-4">Photography</h2>
+            <p>Explore a selection of my photographs with a focus on travel, portraits, and creative visuals.</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="gallery-grid ftco-animate">
+              <!-- GALLERY IMAGE 1: replace this URL with your first homepage photo -->
+              <a href="images/Img1.JPG" class="gallery-item" style="background-image: url('images/Img1.JPG');" target="_blank" rel="noreferrer">
+                <div class="gallery-caption"><h3>CIty Heritage</h3></div>
+              </a>
+              <!-- GALLERY IMAGE 2: replace this URL with your second homepage photo -->
+              <a href="images/img2.png" class="gallery-item" style="background-image: url('images/img2.png');" target="_blank" rel="noreferrer">
+                <div class="gallery-caption"><h3>Creative Portrait</h3></div>
+              </a>
+              <a href="images/img3.png" class="gallery-item" style="background-image: url('images/img3.png');" target="_blank" rel="noreferrer">
+                <div class="gallery-caption"><h3>Festivals</h3></div>
+              </a>
+              <a href="images/img4.png" class="gallery-item" style="background-image: url('images/img4.png');" target="_blank" rel="noreferrer">
+                <div class="gallery-caption"><h3>Vintage</h3></div>
+              </a>
+            </div>
           </div>
         </div>
 
@@ -420,13 +731,12 @@
               <span class="date">2023-Present</span>
               <h2>Web Developer</h2>
               <span class="position">Freelancer</span>
-              <p class="mt-4">Web developer and data analyst proficient in HTML, CSS, JavaScript, Python, and SQL. I create responsive interfaces and implement data analysis pipelines to derive actionable insights.
-                <ul>
-                  <li>Developed interactive web applications using HTML, CSS, and JavaScript.</li>
-                  <li>Implemented data analysis pipelines using Python and SQL.</li>
-                  <li>Created data visualizations and reports using Excel.</li>
-                </ul>
-              </p>
+              <p class="mt-4">Web developer and data analyst proficient in HTML, CSS, JavaScript, Python, and SQL. I create responsive interfaces and implement data analysis pipelines to derive actionable insights.</p>
+              <ul>
+                <li>Developed interactive web applications using HTML, CSS, and JavaScript.</li>
+                <li>Implemented data analysis pipelines using Python and SQL.</li>
+                <li>Created data visualizations and reports using Excel.</li>
+              </ul>
             </div>
 
           </div>
@@ -436,14 +746,13 @@
               <span class="date">2021-Present</span>
               <h2>Freelancer Lyricist & Musician</h2>
               <span class="position">ig/prioryofsion_</span>
-              <p class="mt-4">Freelance Musician specializing in four different Music Instruments. Self-taught and experienced in Short-films, Lyrics writting and compossing. Find my portfolio on Instagram - @prioryofsion_</p>
-                <ul>
-                  <li>Researching market trends to meet client demands.</li>
-                  <li>Written few songs and stories for Short-films.</li>
-                  <li>Collaborating with Music Bands with my Skills.</li>
-                  <li>Experienced in Content wrtting</li>
-                </ul>
-              </p>
+              <p class="mt-4">Freelance Musician specializing in four different music instruments. Self-taught and experienced in short films, lyrics writing, and composing. Find my portfolio on Instagram - @prioryofsion_</p>
+              <ul>
+                <li>Researching market trends to meet client demands.</li>
+                <li>Written few songs and stories for short films.</li>
+                <li>Collaborating with music bands with my skills.</li>
+                <li>Experienced in content writing.</li>
+              </ul>
             </div>
 
           </div>
